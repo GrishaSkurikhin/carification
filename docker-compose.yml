@@ -1,0 +1,11 @@
+version: '3'
+services:
+  flask:
+    build: ./server
+    container_name: carification-backend
+    restart: on-failure
+    volumes:
+      - ./server:/server
+    ports:
+      - "8080:8080"
+    command: python main.py
