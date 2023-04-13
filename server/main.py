@@ -1,8 +1,9 @@
 import configparser
 from flask import Flask, request, jsonify
 from PIL import Image, UnidentifiedImageError
-from model import Model
+from waitress import serve
 from werkzeug.exceptions import *
+from model import Model
 
 app = Flask(__name__)
 config = configparser.ConfigParser()
@@ -28,4 +29,4 @@ def process_image():
         return jsonify({'error': "prediction error"})
 
 if __name__ == '__main__':
-    app.run(host=config["server"]["host"], port=config["server"]["port"])
+    serve(app, host=config["server"]["host"], port=config["server"]["port"])
