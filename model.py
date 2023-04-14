@@ -20,6 +20,7 @@ class Model:
             self.learn = load_learner(EXPORT_PATH, cpu=True)
         '''
         self.learn = load_learner(model_path, cpu=True)
+        
 
     def predict(self, img):
         img = img.resize((224,224))

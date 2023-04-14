@@ -10,6 +10,10 @@ config = configparser.ConfigParser()
 config.read('config.ini')
 model = Model(config["model"]["path"])
 
+@app.route('/', methods=['GET'])
+def main_route():
+    return jsonify({'message': "hello world"})
+
 @app.route('/predict_image', methods=['POST'])
 def process_image():
     try:
