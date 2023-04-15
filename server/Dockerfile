@@ -3,4 +3,6 @@ WORKDIR /server
 COPY requirements.txt /server
 RUN pip3 install --upgrade pip -r requirements.txt
 COPY . /server
-EXPOSE 8080
+EXPOSE 5000
+
+CMD ["python", "main.py"]
